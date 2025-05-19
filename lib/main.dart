@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/issue_demo.dart';
+import 'package:flutter_demo/issue_demo_ii.dart';
 
 void main() {
   runApp(const MyApp());
@@ -108,6 +110,40 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        content: const IssueDemo(),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('Close'),
+                          )
+                        ],
+                      )
+                  );
+                },
+                child: const Text('Show IssueDemo I')
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        content: const IssueDemoII(),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('Close'),
+                          )
+                        ],
+                      )
+                  );
+                },
+                child: const Text('Show IssueDemo II')
             ),
           ],
         ),
